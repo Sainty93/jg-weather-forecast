@@ -13,3 +13,27 @@ function FormatDay(date){
     (day<10 ? '0' : '') + day;
     return dayOutput;
 }
+init();
+
+function init(){
+    var storedCities = JSON.parsel(localStorage.getItem("cities"));
+
+    if (storedCities !== null) {
+        cities = storedCities;
+    }
+
+        renderCities();
+    
+}
+
+function renderCities() {
+    citylist.empty();
+
+    for(var i = 0; i < cities.length; i++) {
+        var city =cities[i];
+        
+        var li = $("<li>").text(city);
+        li.attr("id", "listC");
+        li.attr("data-city", city);
+    }
+}

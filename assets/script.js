@@ -1,9 +1,9 @@
 var citiesList =$("#cities-List");
 var cities = [];
-var key = "fc8bffadcdca6a94d021c093eac22797";
+var key = "3a2493c4f39f5c2c8541cb7f8707351f";
 
 function FormatDay(date){
-    var date = new Date();
+    var date = new Date();1
     console.long(date);
     var month = date.getMonth()+1;
     var day = date.getDate();
@@ -26,8 +26,16 @@ function init(){
     
 }
 
+function storeCities() {
+    
+localStorage.setItem("cities",JSON.stringify(cities));
+console.log(localStorage);
+
+}
+
 function renderCities() {
-    citylist.empty();
+    cityList.empty();
+}    
 
     for(var i = 0; i < cities.length; i++) {
         var city =cities[i];
@@ -35,5 +43,15 @@ function renderCities() {
         var li = $("<li>").text(city);
         li.attr("id", "listC");
         li.attr("data-city", city);
+        li.attr("class" , "list-group-item");
+        console.log(li);
+        cityList.prepend(li);
     }
+
+if (!city){
+    return          
 }
+else {
+    getResponseWeather(city)
+};
+

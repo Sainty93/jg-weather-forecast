@@ -13,6 +13,26 @@ function FormatDay(date){
     (day<10 ? '0' : '') + day;
     return dayOutput;
 }
+
+let weatherCoordsApi = 'https://api.openweathermap.org/geo/1.0/direct';
+  weatherCoordsApi =
+    weatherCoordsApi +
+    '?q=' +
+    userSearch +
+    '&limit=&appid=f3dd875ac81e50aaada068245357b0ee'; 
+
+
+    let weatherForecastApi =
+        'https://api.openweathermap.org/data/2.5/forecast';
+      weatherForecastApi =
+        weatherForecastApi +
+        '?lat=' +
+        latitude +
+        '&lon=' +
+        longitude +
+        '&appid=' +
+        key;
+
 init();
 
 function init(){
